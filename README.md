@@ -341,8 +341,7 @@ Install the following before running the project:
 ## 1. Clone the Repository
 
 ```bash
-git clone https://github.com/priya29-hash/courier-management.git
-```
+git clone https://github.com/priya29-hash/courier-management-system.git```
 
 Move into the project directory:
 
