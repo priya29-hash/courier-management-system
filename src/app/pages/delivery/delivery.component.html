@@ -1,0 +1,331 @@
+<form class="delivery-container" [formGroup]="deliveryForm">
+
+
+  <!-- LEFT FORM -->
+
+  <div class="form-card">
+
+
+    <h2>Delivery Management</h2>
+
+
+    <div
+    *ngIf="message"
+    class="message"
+    [ngClass]="messageType">
+
+      {{message}}
+
+    </div>
+
+
+
+    <label>Delivery Date</label>
+
+ <input type="date" formControlName="deliveryDate">
+
+
+
+    <label>AWB Number</label>
+
+    <input
+    type="text"
+    placeholder="Enter AWB Number"
+    formControlName="awbNo">
+
+
+
+    <label>Receiver Name</label>
+
+    <input
+    type="text"
+    placeholder="Enter Receiver Name"
+    formControlName="receiverName">
+
+
+
+    <label>Delivery Person</label>
+
+    <input
+    type="text"
+    placeholder="Enter Delivery Person Name"
+    formControlName="deliveryPerson">
+
+
+
+    <label>Mobile Number</label>
+
+    <input
+    type="text"
+    placeholder="Enter Mobile Number"
+    formControlName="mobile">
+
+
+
+  
+
+
+
+    <label>Status</label>
+
+    <select formControlName="status">
+
+
+      <option>Out for Delivery</option>
+
+      <option>Delivered</option>
+
+      <option>Failed</option>
+
+      <option>Returned</option>
+
+
+    </select>
+
+
+
+
+    <label>Remarks</label>
+
+    <input
+    type="text"
+    placeholder="Enter Remarks"
+    formControlName="remarks">
+
+
+
+
+
+    <div class="buttons">
+
+
+      <button
+      type="button"
+      class="save"
+      (click)="save()">
+
+      Save
+
+      </button>
+
+
+
+
+      <button
+      type="button"
+      class="update"
+      (click)="update()">
+
+      Update
+
+      </button>
+
+
+
+
+      <button
+      type="button"
+      class="reset"
+      (click)="reset()">
+
+      Reset
+
+      </button>
+
+
+    </div>
+
+
+  </div>
+
+
+
+
+
+  <!-- RIGHT TABLE -->
+
+
+  <div class="table-card">
+
+
+    <h2>Delivery Details</h2>
+
+
+
+    <div class="table-toolbar">
+
+
+<input
+type="text"
+placeholder="🔍 Search AWB number"
+[(ngModel)]="searchText"
+[ngModelOptions]="{standalone:true}"
+(keyup)="search()">
+
+
+
+<button
+type="button"
+class="save"
+(click)="reset()">
+
++ New Delivery
+
+</button>
+
+
+</div>
+
+
+
+
+
+    <table>
+
+
+      <thead>
+
+
+        <tr>
+
+          <th>S No</th>
+
+          <th>AWB No</th>
+
+          <th>Receiver</th>
+
+          <th>Delivery Person</th>
+
+          <th>Location</th>
+
+          <th>Status</th>
+
+          <th>Action</th>
+
+
+        </tr>
+
+
+      </thead>
+
+
+
+
+      <tbody>
+
+
+        <tr *ngIf="filteredData.length==0">
+
+          <td colspan="7">
+
+            No Records Found
+
+          </td>
+
+        </tr>
+
+
+
+
+        <tr
+        *ngFor="let item of filteredData; let i=index">
+
+
+          <td>{{item.sno}}</td>
+
+
+          <td>{{item.awbNo}}</td>
+
+
+          <td>{{item.receiverName}}</td>
+
+
+          <td>{{item.deliveryPerson}}</td>
+
+
+          <td>{{item.location}}</td>
+
+
+
+          <td>
+
+
+            <span
+            class="status-badge"
+            [ngClass]="{
+
+            'delivery':item.status=='Out for Delivery',
+
+            'delivered':item.status=='Delivered',
+
+            'returned':item.status=='Returned',
+
+            'failed':item.status=='Failed'
+
+            }">
+
+
+            {{item.status}}
+
+
+            </span>
+
+
+          </td>
+
+
+
+
+
+          <td class="action-buttons">
+
+
+            <button
+            type="button"
+            class="save"
+            (click)="view(item)">
+
+            View
+
+            </button>
+
+
+
+            <button
+            type="button"
+            class="update"
+            (click)="edit(i)">
+
+            Edit
+
+            </button>
+
+
+
+            <button
+            type="button"
+            class="reset"
+            (click)="delete(i)">
+
+            Delete
+
+            </button>
+
+
+          </td>
+
+
+        </tr>
+
+
+      </tbody>
+
+
+    </table>
+
+
+  </div>
+
+
+
+</form>

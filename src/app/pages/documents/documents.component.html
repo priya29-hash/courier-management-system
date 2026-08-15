@@ -1,0 +1,465 @@
+<form class="documents-page" [formGroup]="documentForm">
+
+
+<!-- HEADER -->
+
+<div class="page-header">
+
+    <div>
+        <h1>📄 Document Management</h1>
+        <p>
+            Manage courier documents, verification and AWB records
+        </p>
+    </div>
+
+</div>
+
+
+
+
+<!-- SUMMARY CARDS -->
+
+<div class="document-summary">
+
+
+<div class="summary-card">
+
+<h4>Total Documents</h4>
+
+<h2>{{documentData.length}}</h2>
+
+</div>
+
+
+
+<div class="summary-card approved">
+
+<h4>Approved</h4>
+
+<h2>
+{{approvedDocuments}}
+</h2>
+
+</div>
+
+
+
+<div class="summary-card pending">
+
+<h4>Pending</h4>
+
+<h2>
+{{pendingDocuments}}
+</h2>
+
+</div>
+
+
+
+<div class="summary-card rejected">
+
+<h4>Rejected</h4>
+
+<h2>
+{{rejectedDocuments}}
+</h2>
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<!-- MAIN CONTENT -->
+
+<div class="document-layout">
+
+
+
+
+
+<!-- FORM -->
+
+<div class="document-form">
+
+
+<h2>Document Details</h2>
+
+
+
+<div
+*ngIf="message"
+class="message"
+[ngClass]="messageType">
+
+{{message}}
+
+</div>
+
+
+
+
+<label>Document Date</label>
+
+<input
+type="datetime-local"
+formControlName="documentDate">
+
+
+
+
+
+<label>AWB Number</label>
+
+<input
+type="text"
+placeholder="Enter AWB Number"
+formControlName="awbNo">
+
+
+
+
+
+<label>Document Type</label>
+
+<select formControlName="documentType">
+
+
+<option value="">
+Select Type
+</option>
+
+
+<option>
+Invoice
+</option>
+
+
+<option>
+Receipt
+</option>
+
+
+<option>
+E-Way Bill
+</option>
+
+
+<option>
+Packing List
+</option>
+
+
+<option>
+Other
+</option>
+
+
+</select>
+
+
+
+
+
+
+<label>Document Number</label>
+
+<input
+type="text"
+placeholder="Enter Document Number"
+formControlName="documentNo">
+
+
+
+
+
+
+<label>Uploaded By</label>
+
+<input
+type="text"
+placeholder="Enter User Name"
+formControlName="senderName">
+
+
+
+
+
+
+<label>Status</label>
+
+<select formControlName="status">
+
+
+<option>
+Pending
+</option>
+
+
+<option>
+Verified
+</option>
+
+
+<option>
+Rejected
+</option>
+
+
+</select>
+
+
+
+
+
+
+<div class="buttons">
+
+
+<button
+type="button"
+class="save"
+(click)="save()">
+
+Save
+
+</button>
+
+
+<button
+type="button"
+class="update"
+(click)="update()">
+
+Update
+
+</button>
+
+
+<button
+type="button"
+class="reset"
+(click)="reset()">
+
+Reset
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- TABLE -->
+
+
+<div class="document-table">
+
+
+<div class="table-top">
+
+
+<h2>Document Records</h2>
+
+
+<input
+
+type="text"
+
+placeholder="🔍 Search AWB / Document No"
+
+[(ngModel)]="searchText"
+
+[ngModelOptions]="{standalone:true}"
+
+(keyup)="search()">
+
+
+</div>
+
+
+
+
+
+<table>
+
+
+<thead>
+
+
+<tr>
+
+<th>S.No</th>
+
+<th>AWB No</th>
+
+<th>Type</th>
+
+<th>Document No</th>
+
+<th>Uploaded By</th>
+
+<th>Status</th>
+
+<th>Action</th>
+
+
+</tr>
+
+
+</thead>
+
+
+
+
+<tbody>
+
+
+<tr *ngIf="filteredData.length==0">
+
+<td colspan="7">
+
+No Records Found
+
+</td>
+
+</tr>
+
+
+
+
+
+<tr
+*ngFor="let item of filteredData; let i=index">
+
+
+<td>
+{{i+1}}
+</td>
+
+
+<td>
+{{item.awbNo}}
+</td>
+
+
+<td>
+{{item.documentType}}
+</td>
+
+
+<td>
+{{item.documentNo}}
+</td>
+
+
+<td>
+{{item.senderName}}
+</td>
+
+
+
+<td>
+
+
+<span
+class="status"
+[ngClass]="{
+
+'pending':item.status=='Pending',
+
+'verified':item.status=='Verified',
+
+'rejected':item.status=='Rejected'
+
+}">
+
+{{item.status}}
+
+</span>
+
+
+</td>
+
+
+
+
+<td class="actions">
+
+
+<button
+class="view"
+type="button"
+(click)="view(item)">
+
+View
+
+</button>
+
+
+
+<button
+class="edit"
+type="button"
+(click)="edit(i)">
+
+Edit
+
+</button>
+
+
+
+<button
+class="delete"
+type="button"
+(click)="delete(i)">
+
+Delete
+
+</button>
+
+
+</td>
+
+
+
+</tr>
+
+
+</tbody>
+
+
+</table>
+
+
+
+
+<div class="table-footer">
+
+Showing {{filteredData.length}} documents
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</form>

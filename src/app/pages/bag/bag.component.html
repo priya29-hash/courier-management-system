@@ -1,0 +1,437 @@
+<div class="bag-page" [formGroup]="bagForm">
+
+
+<!-- HEADER -->
+
+<div class="bag-header">
+
+<div>
+<h1>📦 Bag Management</h1>
+<p>Track bag movement, branches and dispatch status</p>
+</div>
+
+
+<div class="bag-summary">
+
+<div class="summary-box">
+
+<h3>Total Bags</h3>
+
+<span>
+{{filteredData.length}}
+</span>
+
+</div>
+
+
+<div class="summary-box">
+
+<h3>Current View</h3>
+
+<span>
+{{filteredData.length}}
+</span>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<!-- MAIN CONTENT -->
+
+<div class="bag-layout">
+
+
+
+<!-- LEFT FORM -->
+
+<div class="bag-form-card">
+
+
+<h2>Create Bag</h2>
+
+
+
+<div 
+*ngIf="message"
+class="message"
+[ngClass]="messageType">
+
+{{message}}
+
+</div>
+
+
+
+
+<label>Bag Date</label>
+
+<input
+type="datetime-local"
+formControlName="bagDate">
+
+
+
+
+
+<label>Bag Number</label>
+
+<input
+type="text"
+placeholder="Enter Bag Number"
+formControlName="bagNo">
+
+
+
+
+
+<label>Origin Branch</label>
+
+<input
+type="text"
+placeholder="Enter Origin Branch"
+formControlName="fromBranch">
+
+
+
+
+
+<label>Destination Branch</label>
+
+<input
+type="text"
+placeholder="Enter Destination Branch"
+formControlName="toBranch">
+
+
+
+
+
+<label>Manifest Number</label>
+
+<input
+type="text"
+placeholder="Enter Manifest Number"
+formControlName="manifestNo">
+
+
+
+
+
+<label>Seal Number</label>
+
+<input
+type="text"
+placeholder="Enter Seal Number"
+formControlName="sealNo">
+
+
+
+
+
+<label>Status</label>
+
+<select formControlName="status">
+
+<option value="Open">
+Open
+</option>
+
+<option value="Dispatched">
+Dispatched
+</option>
+
+<option value="Closed">
+Closed
+</option>
+
+<option value="Received">
+Received
+</option>
+
+</select>
+
+
+
+
+
+
+
+<div class="buttons">
+
+
+<button
+type="button"
+class="save"
+(click)="save()">
+
+Save
+
+</button>
+
+
+
+<button
+type="button"
+class="update"
+(click)="update()">
+
+Update
+
+</button>
+
+
+
+<button
+type="button"
+class="reset"
+(click)="reset()">
+
+Reset
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- RIGHT TABLE -->
+
+
+<div class="bag-table-card">
+
+
+<div class="table-header">
+
+
+<h2>
+Bag Records
+</h2>
+
+
+
+<input
+type="text"
+placeholder="🔍 Search Bag Number"
+[(ngModel)]="searchText"
+[ngModelOptions]="{standalone:true}"
+(keyup)="search()">
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>S.No</th>
+
+<th>Bag No</th>
+
+<th>From Branch</th>
+
+<th>To Branch</th>
+
+<th>Manifest No</th>
+
+<th>Status</th>
+
+<th>Action</th>
+
+</tr>
+
+
+</thead>
+
+
+
+
+
+
+<tbody>
+
+
+
+<tr *ngIf="filteredData.length==0">
+
+<td colspan="7">
+
+No Records Found
+
+</td>
+
+</tr>
+
+
+
+
+
+
+<tr
+*ngFor="let item of filteredData; let i=index">
+
+
+<td>
+{{i+1}}
+</td>
+
+
+
+
+<td>
+📦 {{item.bag_no}}
+</td>
+
+
+
+
+<td>
+{{item.from_branch}}
+</td>
+
+
+
+
+<td>
+{{item.to_branch}}
+</td>
+
+
+
+
+<td>
+{{item.manifest_no}}
+</td>
+
+
+
+
+
+<td>
+
+<span
+class="status"
+[ngClass]="{
+
+'open': item.status=='Open',
+
+'dispatch': item.status=='Dispatched',
+
+'closed': item.status=='Closed',
+
+'received': item.status=='Received'
+
+}">
+
+{{item.status}}
+
+</span>
+
+
+</td>
+
+
+
+
+
+
+<td class="action-buttons">
+
+
+<button
+type="button"
+class="view"
+(click)="view(item)">
+
+View
+
+</button>
+
+
+
+
+<button
+type="button"
+class="edit"
+(click)="edit(i)">
+
+Edit
+
+</button>
+
+
+
+
+<button
+type="button"
+class="delete"
+(click)="delete(i)">
+
+Delete
+
+</button>
+
+
+</td>
+
+
+
+</tr>
+
+
+
+</tbody>
+
+
+</table>
+
+
+
+
+
+
+<div class="footer">
+
+Showing {{filteredData.length}} bags
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>

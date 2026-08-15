@@ -1,0 +1,456 @@
+<div class="manifest-page" [formGroup]="manifestForm">
+
+
+<!-- HEADER -->
+
+<div class="manifest-header">
+
+    <div>
+        <h1>📄 Manifest Management</h1>
+        <p>Manage shipment manifests, vehicle details and transit status</p>
+    </div>
+
+
+    <div class="manifest-summary">
+
+
+        <div class="summary-card">
+            <h3>Total Manifest</h3>
+            <span>
+                {{filteredData.length}}
+            </span>
+        </div>
+
+
+
+        <div class="summary-card green">
+            <h3>In Transit</h3>
+            <span>
+                {{getTransitCount()}}
+            </span>
+        </div>
+
+
+
+        <div class="summary-card orange">
+            <h3>Completed</h3>
+            <span>
+                {{getCompletedCount()}}
+            </span>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<!-- MAIN CONTENT -->
+
+<div class="manifest-layout">
+
+
+
+<!-- FORM -->
+
+<div class="manifest-form-card">
+
+
+<h2>Create Manifest</h2>
+
+
+<div
+*ngIf="message"
+class="message"
+[ngClass]="messageType">
+
+{{message}}
+
+</div>
+
+
+
+
+<label>Manifest Number</label>
+
+<input
+type="text"
+placeholder="Enter Manifest Number"
+formControlName="manifestNo">
+
+
+
+
+
+<label>Manifest Date</label>
+
+<input
+type="datetime-local"
+formControlName="manifestDate">
+
+
+
+
+
+<label>From Branch</label>
+
+<input
+type="text"
+placeholder="Enter Source Branch"
+formControlName="fromBranch">
+
+
+
+
+
+<label>To Branch</label>
+
+<input
+type="text"
+placeholder="Enter Destination Branch"
+formControlName="toBranch">
+
+
+
+
+
+<label>Vehicle Number</label>
+
+<input
+type="text"
+placeholder="Enter Vehicle Number"
+formControlName="vehicleNo">
+
+
+
+
+
+<label>Driver Name</label>
+
+<input
+type="text"
+placeholder="Enter Driver Name"
+formControlName="driverName">
+
+
+
+
+
+<label>Status</label>
+
+<select formControlName="status">
+
+
+<option value="Open">
+Open
+</option>
+
+
+<option value="Closed">
+Closed
+</option>
+
+
+<option value="In Transit">
+In Transit
+</option>
+
+
+<option value="Completed">
+Completed
+</option>
+
+
+</select>
+
+
+
+
+
+
+<div class="buttons">
+
+
+<button
+type="button"
+class="save"
+(click)="save()">
+
+Save
+
+</button>
+
+
+
+<button
+type="button"
+class="update"
+(click)="update()">
+
+Update
+
+</button>
+
+
+
+<button
+type="button"
+class="reset"
+(click)="reset()">
+
+Reset
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- TABLE -->
+
+
+<div class="manifest-table-card">
+
+
+<div class="table-header">
+
+
+<h2>
+Manifest Records
+</h2>
+
+
+
+<input
+type="text"
+placeholder="🔍 Search Manifest / Vehicle"
+
+[(ngModel)]="searchText"
+
+[ngModelOptions]="{standalone:true}"
+
+(keyup)="search()">
+
+
+
+</div>
+
+
+
+
+
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>S.No</th>
+
+<th>Manifest No</th>
+
+<th>Date</th>
+
+<th>From</th>
+
+<th>To</th>
+
+<th>Vehicle</th>
+
+<th>Status</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+
+
+
+
+<tbody>
+
+
+<tr *ngIf="filteredData.length==0">
+
+<td colspan="8">
+
+No Records Found
+
+</td>
+
+</tr>
+
+
+
+
+
+
+<tr
+*ngFor="let item of filteredData; let i=index">
+
+
+<td>
+{{i+1}}
+</td>
+
+
+
+<td>
+{{item.manifestNo}}
+</td>
+
+
+
+<td>
+{{item.manifestDate}}
+</td>
+
+
+
+<td>
+{{item.fromBranch}}
+</td>
+
+
+
+<td>
+{{item.toBranch}}
+</td>
+
+
+
+<td>
+{{item.vehicleNo}}
+</td>
+
+
+
+
+<td>
+
+
+<span
+class="status"
+
+[ngClass]="{
+
+'open':item.status=='Open',
+
+'transit':item.status=='In Transit',
+
+'completed':item.status=='Completed',
+
+'closed':item.status=='Closed'
+
+}">
+
+
+{{item.status}}
+
+
+</span>
+
+
+</td>
+
+
+
+
+
+
+<td class="action-buttons">
+
+
+<button
+type="button"
+class="view"
+
+(click)="view(item)">
+
+View
+
+</button>
+
+
+
+
+
+<button
+type="button"
+class="edit"
+
+(click)="edit(i)">
+
+Edit
+
+</button>
+
+
+
+
+
+<button
+type="button"
+class="delete"
+
+(click)="delete(i)">
+
+Delete
+
+</button>
+
+
+
+</td>
+
+
+</tr>
+
+
+</tbody>
+
+
+</table>
+
+
+
+
+
+
+
+<div class="footer">
+
+Showing {{filteredData.length}} manifests
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>

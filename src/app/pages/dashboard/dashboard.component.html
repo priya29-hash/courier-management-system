@@ -1,0 +1,112 @@
+<div class="dashboard-page">
+
+
+  <!-- Welcome Banner -->
+
+  <div class="welcome-section">
+
+    <h2>
+      Courier Management Dashboard
+    </h2>
+
+    <p>
+Welcome Admin! Monitor deliveries, vehicles,
+manifests, employees, customers and daily courier
+operations from one place.
+</p>
+
+  </div>
+
+
+
+  <!-- Dashboard Cards -->
+
+  <div class="card-container">
+
+
+    <div
+      class="dashboard-card"
+      *ngFor="let card of dashboardCards"
+      (click)="goTo(card.route)"
+    >
+
+
+      <h3>
+        {{card.title}}
+      </h3>
+
+
+      <p>
+        {{card.value}}
+      </p>
+
+
+    </div>
+
+
+  </div>
+
+
+<!-- Line Chart -->
+
+<div class="chart-section">
+
+  <div class="chart-card">
+
+    <h3>Courier Statistics</h3>
+
+    <div class="chart-container">
+
+      <canvas id="lineChart"></canvas>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+  <!-- Quick Actions -->
+
+
+  <div class="action-section">
+
+
+
+
+ 
+
+
+    <button
+      type="button"
+      (click)="goTo('vehicle')">
+
+      Add Vehicle
+
+    </button>
+
+
+
+    <button
+      type="button"
+      (click)="goTo('manifest')">
+
+      Create Manifest
+
+    </button>
+
+
+    
+
+  </div>
+  
+  
+  
+ 
+
+
+
+</div>

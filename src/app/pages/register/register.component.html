@@ -1,0 +1,137 @@
+<div class="register-container">
+
+
+  <div class="register-box">
+
+
+    <h2>Create Account</h2>
+<p class="message">
+  {{message}}
+</p>
+
+    <form 
+    [formGroup]="registerForm"
+    (ngSubmit)="register()">
+
+
+
+      <!-- Username -->
+
+      <div class="form-group">
+
+        <label>Username</label>
+
+        <input 
+        type="text"
+        placeholder="Enter username"
+        formControlName="username">
+
+
+        <small 
+        *ngIf="registerForm.get('username')?.touched 
+        && registerForm.get('username')?.invalid">
+
+          Username is required
+
+        </small>
+
+      </div>
+
+      <div class="form-group">
+
+  <label>Full Name</label>
+
+  <input
+    type="text"
+    placeholder="Enter Full Name"
+    formControlName="full_name">
+
+</div>
+
+<div class="form-group">
+
+  <label>Role</label>
+
+  <select formControlName="role">
+
+    <option value="Employee">Employee</option>
+
+    <option value="Admin">Admin</option>
+
+  </select>
+
+</div>
+Your Register form should now
+
+
+
+     
+
+
+
+
+      <!-- Password -->
+
+      <div class="form-group">
+
+        <label>Password</label>
+
+        <div class="password-box">
+
+<input 
+[type]="showPassword ? 'text' : 'password'"
+placeholder="Enter password"
+formControlName="password">
+
+
+<i 
+class="fa"
+[class.fa-eye]="!showPassword"
+[class.fa-eye-slash]="showPassword"
+(click)="togglePassword()">
+</i>
+
+</div>
+
+        <small 
+        *ngIf="registerForm.get('password')?.touched 
+        && registerForm.get('password')?.invalid">
+
+          Password must contain minimum 6 characters
+
+        </small>
+
+      </div>
+
+
+
+
+      <!-- Button -->
+
+      <button 
+      type="submit"
+      [disabled]="registerForm.invalid">
+
+        Register
+
+      </button>
+
+
+
+    </form>
+
+
+   <p>
+  Already have an account?
+  
+  <a routerLink="/login">
+    Login
+  </a>
+
+</p>
+
+
+  </div>
+
+
+</div>

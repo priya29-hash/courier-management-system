@@ -1,0 +1,47 @@
+<div class="header">
+
+
+  <div class="left-header">
+
+    <h2>
+      Courier Management System
+    </h2>
+
+  </div>
+
+
+<div class="right-header">
+
+  <span class="notification">🔔</span>
+
+  <div class="admin-box">
+
+    <div class="admin" (click)="toggleProfile()">
+      👤 {{ username }} ▼
+    </div>
+
+    <div class="profile-dropdown" *ngIf="showProfile">
+
+      <h3>Administrator</h3>
+
+      <hr>
+
+      <p><strong>Username:</strong> {{ username }}</p>
+
+      <p><strong>Role:</strong> Administrator</p>
+
+      <p><strong>Status:</strong> Active</p>
+
+     <p><strong>Login:</strong> {{ loginDate }}</p>
+
+      <button class="logout-btn" (click)="logout()">
+        Logout
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+  

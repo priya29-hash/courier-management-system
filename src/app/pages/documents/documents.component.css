@@ -1,0 +1,519 @@
+/* ===============================
+   DOCUMENT PAGE
+================================ */
+
+:host{
+
+display:block;
+
+padding:20px;
+
+background:#F4F8EF;
+
+font-family:'Segoe UI',sans-serif;
+
+}
+
+.documents-page{
+
+min-height:100vh;
+
+}
+
+/* ===============================
+   HEADER
+================================ */
+
+.page-header{
+
+background:white;
+
+padding:25px;
+
+border-radius:18px;
+
+border-left:6px solid #A3C770;
+
+box-shadow:
+0 8px 20px rgba(163,199,112,.15);
+
+margin-bottom:25px;
+
+}
+
+.page-header h1{
+
+margin:0;
+
+color:#3E5630;
+
+font-size:28px;
+
+}
+
+.page-header p{
+
+color:#6A7D58;
+
+margin-top:8px;
+
+}
+
+/* ===============================
+   SUMMARY CARDS
+================================ */
+
+.document-summary{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:20px;
+
+margin-bottom:25px;
+
+}
+
+.summary-card{
+
+background:white;
+
+padding:20px;
+
+border-radius:15px;
+
+text-align:center;
+
+border-top:5px solid #A3C770;
+
+box-shadow:
+0 6px 18px rgba(163,199,112,.15);
+
+}
+
+.summary-card h4{
+
+margin:0;
+
+color:#5D7443;
+
+}
+
+.summary-card h2{
+
+margin-top:12px;
+
+font-size:30px;
+
+color:#7FAE49;
+
+}
+
+.summary-card.approved{
+
+border-color:#6FAF45;
+
+}
+
+.summary-card.approved h2{
+
+color:#5B963A;
+
+}
+
+.summary-card.pending{
+
+border-color:#B8D28B;
+
+}
+
+.summary-card.pending h2{
+
+color:#7A9653;
+
+}
+
+.summary-card.rejected{
+
+border-color:#A7B78A;
+
+}
+
+.summary-card.rejected h2{
+
+color:#6F7F58;
+
+}
+
+/* ===============================
+   MAIN LAYOUT
+================================ */
+
+.document-layout{
+
+display:flex;
+
+gap:25px;
+
+align-items:flex-start;
+
+}
+
+/* ===============================
+   FORM
+================================ */
+
+.document-form{
+
+width:35%;
+
+background:white;
+
+padding:25px;
+
+border-radius:18px;
+
+border-top:5px solid #A3C770;
+
+box-shadow:
+0 8px 20px rgba(163,199,112,.10);
+
+}
+
+.document-form h2{
+
+color:#3E5630;
+
+margin-top:0;
+
+}
+
+label{
+
+display:block;
+
+margin-top:15px;
+
+margin-bottom:6px;
+
+font-weight:600;
+
+color:#4B5F3E;
+
+}
+
+input,
+select{
+
+width:100%;
+
+padding:11px;
+
+border-radius:8px;
+
+border:1px solid #CFE0AE;
+
+box-sizing:border-box;
+
+}
+
+input:focus,
+select:focus{
+
+outline:none;
+
+border-color:#A3C770;
+
+box-shadow:
+0 0 6px rgba(163,199,112,.30);
+
+}
+
+/* ===============================
+   TABLE
+================================ */
+
+.document-table{
+
+width:65%;
+
+background:white;
+
+padding:25px;
+
+border-radius:18px;
+
+border-top:5px solid #A3C770;
+
+box-shadow:
+0 8px 20px rgba(163,199,112,.10);
+
+}
+
+.document-table h2{
+
+margin-top:0;
+
+color:#3E5630;
+
+}
+
+.table-top{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+.table-top input{
+
+width:300px;
+
+}
+
+table{
+
+width:100%;
+
+border-collapse:collapse;
+
+margin-top:20px;
+
+}
+
+thead{
+
+background:linear-gradient(
+90deg,
+#A3C770,
+#7FAE49
+);
+
+color:white;
+
+}
+
+th{
+
+padding:13px;
+
+}
+
+td{
+
+padding:12px;
+
+text-align:center;
+
+border-bottom:1px solid #E7EFDD;
+
+color:#4B5F3E;
+
+}
+
+tbody tr:hover{
+
+background:#F4F8EF;
+
+}
+
+/* ===============================
+   STATUS
+================================ */
+
+.status{
+
+padding:6px 14px;
+
+border-radius:20px;
+
+font-size:13px;
+
+font-weight:600;
+
+}
+
+.pending{
+
+background:#DFE8CF;
+
+color:#5D7443;
+
+}
+
+.verified{
+
+background:#CFE0AE;
+
+color:#3E5630;
+
+}
+
+.rejected{
+
+background:#E8E2D5;
+
+color:#6F7F58;
+
+}
+
+/* ===============================
+   BUTTONS
+================================ */
+
+.buttons{
+
+display:flex;
+
+gap:12px;
+
+margin-top:25px;
+
+}
+
+button{
+
+border:none;
+
+padding:9px 15px;
+
+border-radius:8px;
+
+cursor:pointer;
+
+color:white;
+
+font-weight:600;
+
+}
+
+.save{
+
+background:linear-gradient(
+90deg,
+#A3C770,
+#7FAE49
+);
+
+}
+
+.update{
+
+background:#8FB75A;
+
+}
+
+.reset{
+
+background:#6E8D49;
+
+}
+
+.actions button{
+
+margin:3px;
+
+padding:7px 12px;
+
+font-size:13px;
+
+}
+
+.view{
+
+background:#A3C770;
+
+}
+
+.edit{
+
+background:#8FB75A;
+
+}
+
+.delete{
+
+background:#9FAE84;
+
+}
+
+/* ===============================
+   MESSAGE
+================================ */
+
+.message{
+
+padding:12px;
+
+border-radius:8px;
+
+margin-bottom:15px;
+
+font-weight:600;
+
+text-align:center;
+
+}
+
+.success{
+
+background:#EEF5E3;
+
+color:#3E5630;
+
+}
+
+.error{
+
+background:#F3E8D9;
+
+color:#6F7F58;
+
+}
+
+.table-footer{
+
+margin-top:15px;
+
+padding:12px;
+
+background:#EEF5E3;
+
+border-radius:8px;
+
+color:#3E5630;
+
+font-weight:600;
+
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media(max-width:1000px){
+
+.document-layout{
+
+flex-direction:column;
+
+}
+
+.document-form,
+.document-table{
+
+width:100%;
+
+}
+
+.document-summary{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}

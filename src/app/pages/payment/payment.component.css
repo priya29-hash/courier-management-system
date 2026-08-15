@@ -1,0 +1,494 @@
+/* ================================
+PAYMENT PAGE
+================================ */
+
+.payment-page{
+
+    padding:20px;
+
+    min-height:100vh;
+
+    background:linear-gradient(
+        135deg,
+        #F4F8EF,
+        #FFFFFF
+    );
+
+    font-family:'Segoe UI',sans-serif;
+
+}
+
+/* ================================
+HEADER
+================================ */
+
+.payment-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    border-left:6px solid #A3C770;
+
+    box-shadow:
+    0 8px 20px rgba(163,199,112,.18);
+
+    margin-bottom:25px;
+
+}
+
+.payment-header h1{
+
+    margin:0;
+
+    color:#3E5630;
+
+    font-size:28px;
+
+}
+
+.payment-header p{
+
+    color:#6F7F58;
+
+    margin-top:8px;
+
+}
+
+/* ================================
+SUMMARY CARDS
+================================ */
+
+.payment-summary{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.summary-card{
+
+    background:linear-gradient(
+        135deg,
+        #A3C770,
+        #7FAE49
+    );
+
+    color:white;
+
+    width:130px;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    box-shadow:
+    0 5px 15px rgba(163,199,112,.25);
+
+}
+
+.summary-card h3{
+
+    font-size:14px;
+
+    margin:0 0 10px;
+
+}
+
+.summary-card span{
+
+    font-size:28px;
+
+    font-weight:bold;
+
+}
+
+/* ================================
+MAIN LAYOUT
+================================ */
+
+.payment-layout{
+
+    display:flex;
+
+    gap:25px;
+
+    align-items:flex-start;
+
+}
+
+/* ================================
+FORM CARD
+================================ */
+
+.payment-form-card{
+
+    width:35%;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    border-top:5px solid #A3C770;
+
+    box-shadow:
+    0 8px 20px rgba(163,199,112,.18);
+
+}
+
+.payment-form-card h2,
+.payment-table-card h2{
+
+    margin-top:0;
+
+    color:#3E5630;
+
+}
+
+label{
+
+    display:block;
+
+    margin-top:15px;
+
+    margin-bottom:6px;
+
+    font-weight:600;
+
+    color:#4B5F3E;
+
+}
+
+input,
+select{
+
+    width:100%;
+
+    padding:11px;
+
+    border-radius:8px;
+
+    border:1px solid #CFE0AE;
+
+    box-sizing:border-box;
+
+}
+
+input:focus,
+select:focus{
+
+    outline:none;
+
+    border-color:#A3C770;
+
+    box-shadow:
+    0 0 5px rgba(163,199,112,.30);
+
+}
+
+/* ================================
+TABLE CARD
+================================ */
+
+.payment-table-card{
+
+    width:65%;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    border-top:5px solid #7FAE49;
+
+    box-shadow:
+    0 8px 20px rgba(163,199,112,.15);
+
+}
+
+.table-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:15px;
+
+}
+
+.table-header input{
+
+    width:280px;
+
+    border:1px solid #CFE0AE;
+
+}
+
+/* ================================
+MESSAGE
+================================ */
+
+.message{
+
+    padding:12px;
+
+    border-radius:8px;
+
+    margin-bottom:15px;
+
+    text-align:center;
+
+    font-weight:600;
+
+}
+
+.success{
+
+    background:#EEF5E3;
+
+    color:#3E5630;
+
+}
+
+.error{
+
+    background:#F3E8D9;
+
+    color:#6F7F58;
+
+}
+
+/* ================================
+BUTTONS
+================================ */
+
+.buttons{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:25px;
+
+}
+
+button{
+
+    border:none;
+
+    padding:9px 15px;
+
+    border-radius:8px;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+}
+
+.save{
+
+    background:linear-gradient(
+        135deg,
+        #A3C770,
+        #7FAE49
+    );
+
+}
+
+.update{
+
+    background:#8FB75A;
+
+}
+
+.reset{
+
+    background:#6E8D49;
+
+}
+
+.view{
+
+    background:#A3C770;
+
+}
+
+.edit{
+
+    background:#8FB75A;
+
+}
+
+.delete{
+
+    background:#5D7443;
+
+}
+
+button:hover{
+
+    opacity:.85;
+
+}
+
+/* ================================
+TABLE
+================================ */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:15px;
+
+}
+
+thead{
+
+    background:linear-gradient(
+        90deg,
+        #A3C770,
+        #7FAE49
+    );
+
+    color:white;
+
+}
+
+th{
+
+    padding:13px;
+
+    text-align:center;
+
+}
+
+td{
+
+    padding:12px;
+
+    text-align:center;
+
+    border-bottom:1px solid #E7EFDD;
+
+    color:#4B5F3E;
+
+}
+
+tbody tr:hover{
+
+    background:#F4F8EF;
+
+}
+
+/* ================================
+STATUS
+================================ */
+
+.status{
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.paid{
+
+    background:#7FAE49;
+
+    color:#FFFFFF;
+
+}
+
+.pending{
+
+    background:#CFE0AE;
+
+    color:#3E5630;
+
+}
+
+.failed{
+
+    background:#E8E2D5;
+
+    color:#6F7F58;
+
+}
+
+/* ================================
+FOOTER
+================================ */
+
+.footer{
+
+    margin-top:15px;
+
+    color:#5D7443;
+
+    font-weight:600;
+
+}
+
+/* ================================
+RESPONSIVE
+================================ */
+
+@media(max-width:1000px){
+
+.payment-layout{
+
+    flex-direction:column;
+
+}
+
+.payment-form-card,
+.payment-table-card{
+
+    width:100%;
+
+}
+
+.payment-header{
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.payment-summary{
+
+    width:100%;
+
+    justify-content:center;
+
+}
+
+}

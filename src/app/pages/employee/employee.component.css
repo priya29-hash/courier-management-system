@@ -1,0 +1,553 @@
+/* ===============================
+   GLOBAL PAGE STYLE
+================================ */
+
+:host{
+
+display:block;
+
+padding:20px;
+
+background:#F4F8EF;
+
+font-family:'Segoe UI',sans-serif;
+
+}
+
+/* ===============================
+   HEADER
+================================ */
+
+.page-header{
+
+background:linear-gradient(
+135deg,
+#A3C770,
+#7FAE49
+);
+
+padding:25px;
+
+border-radius:18px;
+
+color:white;
+
+margin-bottom:25px;
+
+box-shadow:
+0 10px 25px rgba(163,199,112,.25);
+
+}
+
+.page-header h2{
+
+margin:0;
+
+font-size:28px;
+
+font-weight:700;
+
+}
+
+.page-header p{
+
+margin-top:8px;
+
+opacity:.9;
+
+}
+
+/* ===============================
+   SUMMARY CARDS
+================================ */
+
+.summary-container{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:20px;
+
+margin-bottom:30px;
+
+}
+
+.summary-card{
+
+background:white;
+
+border-radius:18px;
+
+padding:25px;
+
+text-align:center;
+
+position:relative;
+
+overflow:hidden;
+
+box-shadow:
+0 8px 25px rgba(163,199,112,.12);
+
+transition:.3s;
+
+}
+
+.summary-card::before{
+
+content:"";
+
+position:absolute;
+
+height:5px;
+
+width:100%;
+
+top:0;
+
+left:0;
+
+background:linear-gradient(
+90deg,
+#A3C770,
+#7FAE49
+);
+
+}
+
+.summary-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:
+0 15px 35px rgba(163,199,112,.20);
+
+}
+
+.summary-card h4{
+
+color:#6F7F58;
+
+font-size:15px;
+
+margin-top:10px;
+
+}
+
+.summary-card h2{
+
+font-size:35px;
+
+margin:10px 0;
+
+color:#3E5630;
+
+}
+
+/* ===============================
+   MAIN SECTION
+================================ */
+
+.employee-container{
+
+display:flex;
+
+gap:25px;
+
+align-items:flex-start;
+
+}
+
+/* ===============================
+   FORM CARD
+================================ */
+
+.form-card{
+
+width:38%;
+
+background:white;
+
+padding:30px;
+
+border-radius:20px;
+
+box-shadow:
+0 10px 30px rgba(163,199,112,.12);
+
+}
+
+.form-card label{
+
+font-size:14px;
+
+font-weight:600;
+
+color:#4B5F3E;
+
+margin-top:15px;
+
+display:block;
+
+}
+
+.required{
+
+color:#D97706;
+
+}
+
+.form-card input,
+.form-card select,
+.form-card textarea{
+
+width:100%;
+
+padding:12px 14px;
+
+margin-top:6px;
+
+border-radius:10px;
+
+border:1px solid #CFE0AE;
+
+background:#F8FBF4;
+
+font-size:14px;
+
+transition:.3s;
+
+}
+
+.form-card input:focus,
+.form-card select:focus,
+.form-card textarea:focus{
+
+border-color:#A3C770;
+
+background:white;
+
+outline:none;
+
+box-shadow:
+0 0 0 3px rgba(163,199,112,.20);
+
+}
+
+/* ===============================
+   BUTTONS
+================================ */
+
+.buttons{
+
+display:flex;
+
+gap:12px;
+
+margin-top:25px;
+
+}
+
+button{
+
+padding:11px 20px;
+
+border-radius:10px;
+
+border:none;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.3s;
+
+color:white;
+
+}
+
+button:hover{
+
+transform:translateY(-2px);
+
+}
+
+.save{
+
+background:#A3C770;
+
+}
+
+.update{
+
+background:#8FB75A;
+
+}
+
+.reset{
+
+background:#B8D28B;
+
+color:#3E5630;
+
+}
+
+.delete{
+
+background:#6E8D49;
+
+}
+
+.view{
+
+background:#7FAE49;
+
+}
+
+/* ===============================
+   TABLE CARD
+================================ */
+
+.table-card{
+
+width:62%;
+
+background:white;
+
+padding:30px;
+
+border-radius:20px;
+
+box-shadow:
+0 10px 30px rgba(163,199,112,.12);
+
+}
+
+.table-card h2{
+
+margin-top:0;
+
+color:#3E5630;
+
+}
+
+/* SEARCH TOOLBAR */
+
+.table-toolbar{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:20px;
+
+}
+
+.table-toolbar input{
+
+width:320px;
+
+padding:12px 15px;
+
+border-radius:12px;
+
+border:1px solid #CFE0AE;
+
+background:#F8FBF4;
+
+}
+
+.table-toolbar input:focus{
+
+outline:none;
+
+border-color:#A3C770;
+
+}
+
+/* ===============================
+   TABLE DESIGN
+================================ */
+
+table{
+
+width:100%;
+
+border-collapse:separate;
+
+border-spacing:0 8px;
+
+}
+
+thead tr{
+
+background:linear-gradient(
+135deg,
+#A3C770,
+#7FAE49
+);
+
+color:white;
+
+}
+
+th{
+
+padding:15px;
+
+text-align:left;
+
+font-size:14px;
+
+}
+
+tbody tr{
+
+background:white;
+
+box-shadow:
+0 3px 10px rgba(163,199,112,.10);
+
+transition:.25s;
+
+}
+
+tbody tr:hover{
+
+transform:scale(1.02);
+
+background:#F4F8EF;
+
+}
+
+td{
+
+padding:15px;
+
+color:#4B5F3E;
+
+}
+
+/* ===============================
+   STATUS BADGES
+================================ */
+
+.active{
+
+background:#DCECC7;
+
+color:#3E5630;
+
+padding:6px 15px;
+
+border-radius:50px;
+
+font-size:13px;
+
+font-weight:600;
+
+}
+
+.inactive{
+
+background:#E8E2D5;
+
+color:#6F7F58;
+
+padding:6px 15px;
+
+border-radius:50px;
+
+font-size:13px;
+
+font-weight:600;
+
+}
+
+/* ===============================
+   MESSAGE
+================================ */
+
+.message{
+
+padding:14px;
+
+border-radius:12px;
+
+margin-bottom:15px;
+
+font-weight:600;
+
+}
+
+.success{
+
+background:#EEF5E3;
+
+color:#3E5630;
+
+}
+
+.error{
+
+background:#F3E8D9;
+
+color:#6F7F58;
+
+}
+
+/* ===============================
+   FOOTER
+================================ */
+
+.table-footer{
+
+display:flex;
+
+justify-content:space-between;
+
+margin-top:20px;
+
+color:#6F7F58;
+
+}
+
+.updated{
+
+margin-top:25px;
+
+color:#6F7F58;
+
+font-size:14px;
+
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media(max-width:1200px){
+
+.summary-container{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.employee-container{
+
+flex-direction:column;
+
+}
+
+.form-card,
+.table-card{
+
+width:100%;
+
+}
+
+}

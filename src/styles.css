@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+/* ========= Theme Colors ========= */
+:root {
+  --orange-main: #9a3d00;
+  --orange-dark: #5c2400;
+  --orange-light: #f5dcc8;
+}
+:root{
+
+--primary:#ff7a00;
+--primary-dark:#e65100;
+--secondary:#ffb74d;
+--background:#f5f6fa;
+--card:#ffffff;
+--text:#2d3436;
+
+}
+.page-container {
+    background: linear-gradient(
+        135deg,
+        #fff3e0,
+        #ffe0b2
+    );
+    min-height:100vh;
+    padding:20px;
+}
+.card {
+    background:white;
+    border-radius:12px;
+    border-top:5px solid #ff6d00;
+    box-shadow:0 5px 15px rgba(255,109,0,0.25);
+    padding:20px;
+}
