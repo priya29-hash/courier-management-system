@@ -1,59 +1,291 @@
-# CourierManagement
+# Courier Management System
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.27.
+A full-stack web-based **Courier Management System** developed to manage courier operations including consignments, branch inscan, bags, manifests, vehicles, employees, customers, documents, payments, tracking, delivery, and dashboard monitoring.
 
-## Development server
+The application uses **Angular** for the frontend, **FastAPI** for the RESTful backend API, and **MySQL** for data storage.
 
-To start a local development server, run:
+## Features
+
+* 🔐 User authentication and registration
+* 📊 Dashboard with courier operation statistics
+* 📦 Courier and consignment management
+* 🏢 Branch and branch-inscan management
+* 🚚 Vehicle management
+* 🧑‍💼 Employee management
+* 👤 Customer management
+* 👜 Bag management
+* 📋 Manifest management
+* 📄 Document management
+* 💳 Payment management
+* 📍 Shipment tracking
+* 🚚 Delivery management
+* 📈 Reports and operational data
+* 🔄 RESTful API communication between frontend and backend
+
+## Technology Stack
+
+### Frontend
+
+* Angular 19
+* TypeScript
+* HTML5
+* CSS3
+* Chart.js
+
+### Backend
+
+* Python
+* FastAPI
+* SQLAlchemy
+* RESTful APIs
+* Uvicorn
+
+### Database
+
+* MySQL
+
+### Development Tools
+
+* Visual Studio Code
+* Git
+* GitHub
+* npm
+* Python Virtual Environment
+
+## Project Architecture
+
+```text
+Courier Management System
+│
+├── Angular Frontend
+│   ├── Components
+│   ├── Pages
+│   ├── Services
+│   ├── Authentication
+│   └── Dashboard
+│
+├── FastAPI Backend
+│   ├── Routers
+│   ├── Models
+│   ├── Schemas
+│   ├── CRUD Operations
+│   ├── Authentication & Security
+│   └── Database Connection
+│
+└── MySQL Database
+```
+
+## Project Structure
+
+```text
+courier-management-system/
+│
+├── courier-backend/
+│   ├── app/
+│   │   ├── routers/
+│   │   ├── crud.py
+│   │   ├── database.py
+│   │   ├── main.py
+│   │   ├── models.py
+│   │   ├── schemas.py
+│   │   └── security.py
+│   │
+│   ├── requirements.txt
+│   └── test_db.py
+│
+├── src/
+│   └── app/
+│       ├── components/
+│       ├── layout/
+│       ├── pages/
+│       ├── services/
+│       ├── auth.guard.ts
+│       └── auth.interceptor.ts
+│
+├── public/
+├── angular.json
+├── package.json
+├── package-lock.json
+└── README.md
+```
+
+## Getting Started
+
+### Prerequisites
+
+Make sure the following are installed:
+
+* Node.js
+* npm
+* Python 3.x
+* MySQL
+* Angular CLI
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/priya29-hash/courier-management-system.git
+cd courier-management-system
+```
+
+## Frontend Setup
+
+Install the Angular dependencies:
+
+```bash
+npm install
+```
+
+Start the Angular development server:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open:
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```text
+http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Backend Setup
+
+Move to the backend directory:
 
 ```bash
-ng generate --help
+cd courier-backend
 ```
 
-## Building
+Create a Python virtual environment:
 
-To build the project run:
+### Windows
 
 ```bash
-ng build
+python -m venv venv
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Activate it:
 
 ```bash
-ng test
+venv\Scripts\activate
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+Install the required packages:
 
 ```bash
-ng e2e
+pip install -r requirements.txt
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Start the FastAPI server:
 
-## Additional Resources
+```bash
+uvicorn app.main:app --reload
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+The backend will be available at:
+
+```text
+http://127.0.0.1:8000
+```
+
+FastAPI interactive API documentation:
+
+```text
+http://127.0.0.1:8000/docs
+```
+
+## Database Configuration
+
+Create a MySQL database for the application.
+
+Configure the database connection using environment variables rather than committing credentials to GitHub.
+
+Example:
+
+```text
+DATABASE_URL=your_database_connection
+```
+
+> Never commit passwords, API keys, or other sensitive credentials to the repository.
+
+## API Communication
+
+The Angular frontend communicates with the FastAPI backend through RESTful APIs.
+
+Example backend endpoint:
+
+```text
+GET /employees/
+POST /employees/
+GET /vehicles/
+POST /vehicles/
+GET /bags/
+POST /bags/
+```
+
+The complete API can be explored through FastAPI Swagger documentation:
+
+```text
+http://127.0.0.1:8000/docs
+```
+
+## Dashboard
+
+The dashboard provides an overview of courier operations and displays information such as:
+
+* Total consignments
+* Pending shipments
+* Delivered shipments
+* Branches
+* Vehicles
+* Bags
+* Documents
+* Manifests
+
+Chart.js is used for visualizing shipment status and operational information.
+
+## Security
+
+The project includes:
+
+* Authentication
+* Authorization through route guards
+* HTTP authentication interceptor
+* Environment-based configuration
+* Password/security handling on the backend
+
+Sensitive configuration files such as `.env` are excluded from Git using `.gitignore`.
+
+## Future Enhancements
+
+* Deployment to a cloud platform
+* Online shipment tracking
+* Email/SMS delivery notifications
+* Role-based access control
+* Advanced analytics dashboard
+* Automated report generation
+* Cloud database integration
+* Containerization using Docker
+
+## Purpose
+
+This project was developed as a practical full-stack software development project to demonstrate:
+
+* Frontend development
+* Backend API development
+* Database integration
+* RESTful architecture
+* Authentication
+* CRUD operations
+* Full-stack application integration
+* Git and GitHub version control
+
+## Author
+
+**Priya Dharshini**
+
+Computer Science Engineering Student
+
+---
+
+⭐ If you find this project useful, consider giving the repository a star.
